@@ -1,12 +1,16 @@
 package com.gess.simpleframe
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.view.View
+import android.widget.Toast
+import com.gess.core.base.presenter.BaseActivityPersenter
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivityPersenter<MainDelegate>(), View.OnClickListener {
+    override fun onClick(p0: View?) {
+        Toast.makeText(this,"成功",Toast.LENGTH_LONG).show()
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun bindEvenListener() {
+        super.bindEvenListener()
+        viewDelegate?.setOnClickListener(this, R.id.tv_kotlin)
     }
 }
