@@ -16,6 +16,11 @@ class MainActivity : BaseActivityPersenter<MainDelegate>(), View.OnClickListener
         super.bindEvenListener()
         viewDelegate?.setOnClickListener(this, R.id.tv_kotlin)
     }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 }
 
 fun Activity.toast(msg: String){
