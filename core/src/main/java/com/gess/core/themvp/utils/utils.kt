@@ -1,4 +1,4 @@
-package com.gess.core.base.utils
+package com.gess.core.themvp.utils
 
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type

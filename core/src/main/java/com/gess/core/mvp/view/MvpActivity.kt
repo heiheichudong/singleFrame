@@ -1,13 +1,11 @@
 package com.gess.core.mvp.view
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
-import com.gess.core.base.utils.getT
 import com.gess.core.mvp.presenter.IPresenter
+import com.gess.core.themvp.utils.getT
 
 open abstract class MvpActivity<P:IPresenter> : AppCompatActivity(),IView {
-
 
     protected var presenter: P?
 
@@ -15,13 +13,15 @@ open abstract class MvpActivity<P:IPresenter> : AppCompatActivity(),IView {
         try {
             presenter = getT<P>(this, 0)
         } catch (e: Exception) {
-            throw RuntimeException("create IDelegate error")
+            throw RuntimeException("create IPresenter error")
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        presenter!!.view = this
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(getRootLayoutId())
+        initTitleBar()
+        initView()
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -29,13 +29,16 @@ open abstract class MvpActivity<P:IPresenter> : AppCompatActivity(),IView {
         try {
             presenter = presenter ?: getT<P>(this, 0)
         } catch (e: Exception) {
-            throw RuntimeException("create IDelegate error")
+            throw RuntimeException("create IPresenter error")
         }
     }
 
     override fun onDestroy() {
         presenter?.onDestroy()
+        presenter = null
         super.onDestroy()
     }
+
+    abstract fun getRootLayoutId() :Int
 
 }

@@ -1,4 +1,4 @@
-package com.gess.core.base.view
+package com.gess.core.themvp.view
 
 import android.app.Activity
 import android.os.Bundle

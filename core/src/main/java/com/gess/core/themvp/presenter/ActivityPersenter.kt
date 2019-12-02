@@ -1,9 +1,9 @@
-package com.gess.core.base.presenter
+package com.gess.core.themvp.presenter
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.gess.core.base.utils.getT
-import com.gess.core.base.view.IDelegate
+import com.gess.core.themvp.utils.getT
+import com.gess.core.themvp.view.IDelegate
 
 open abstract class ActivityPersenter<T : IDelegate> : AppCompatActivity() {
     protected var viewDelegate: T?

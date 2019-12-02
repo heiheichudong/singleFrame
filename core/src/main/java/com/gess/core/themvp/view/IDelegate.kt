@@ -1,4 +1,4 @@
-package com.gess.core.base.view
+package com.gess.core.themvp.view
 
 import android.os.Bundle
 import android.view.LayoutInflater

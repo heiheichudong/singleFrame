@@ -1,6 +1,6 @@
-package com.gess.core.base.presenter
+package com.gess.core.themvp.presenter
 
-import com.gess.core.base.view.IDelegate
+import com.gess.core.themvp.view.IDelegate
 
 open abstract class BaseActivityPersenter <T:IDelegate> :ActivityPersenter<T>(){
 

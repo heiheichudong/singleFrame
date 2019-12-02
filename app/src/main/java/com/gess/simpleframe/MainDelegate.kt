@@ -1,7 +1,7 @@
 package com.gess.simpleframe
 
 import android.app.Activity
-import com.gess.core.base.view.BaseDelegate
+import com.gess.core.themvp.view.BaseDelegate
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainDelegate : BaseDelegate(){
